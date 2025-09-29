@@ -49,7 +49,8 @@ main h1, main h2, main h3 {
     margin-bottom: 2rem;
     /* font-weight: 700; */
     display: inline-block;
-    background-color: #e3ffe9;
+    /* background-color: #e3ffe9; */
+    background: linear-gradient(to bottom,white,#e3ffe9);
     padding: 0.7rem 2rem;
     border-radius: 100px;
     border: 1px solid black;
@@ -57,6 +58,10 @@ main h1, main h2, main h3 {
 
 h2 {
     font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.2rem;
 }
 
 main p {
@@ -69,9 +74,91 @@ main p {
     padding-top: 3.5rem;
     font-family: "Manrope", sans-serif;
     font-size: 1rem;
-    background-color: #ffe8fe;
+    /* background-color: #ffe8fe; */
+    background: linear-gradient(to bottom,white,#ffe8fe);
     border: 1px solid black;
 }
+
+/* .content {
+    /* margin-top: -4rem;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    padding-top: 3.5rem; */
+    /* background-color: #ffe8fe; 
+} */
+
+/* main img {
+    margin-left: 2rem;
+    width: 500px;
+    background-color: #ffe8fe;
+
+} */
+
+
+.projects-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.project {
+    flex: 1;
+    min-width: 250px;
+    /* max-width: 800px; */
+    /* text-align: center; */
+}
+
+.project img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid black;
+    margin-bottom: -2rem;
+    margin-top: -1rem;
+
+}
+
+.project h3 {
+    margin-left: 2rem;
+}
+
+.project p {
+    margin-left: 4rem;
+}
+
+/* .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+} */
+
+
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.image-item {
+    flex: 1 1 30%;
+    margin-bottom: 1rem;
+}
+
+
+.image-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
 
 footer {
     display: flex;
