@@ -305,9 +305,28 @@ footer a:hover {
     }
 }
 
-svg {
+#barChart {
     background-color: white;
     border: 1px solid black;
     width: 70vw;
     height: 75vh;
+}
+
+#iPod {
+    background-color: #ffe8fe;
+    border: 1px solid black;
+    width: 40vw;
+    height: 80vh;
+}
+
+svg {
+    /* margin-top: -1rem; */
+    margin-bottom: 2rem;
+    margin-top: -1rem;
+}
+
+.visualization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
