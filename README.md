@@ -4,8 +4,8 @@
 The purpose of this website is to serve as a portfolio that includes an introduction, my skills, education, and projects. The visualizations page of the website will be used to display the visualizations I create throughout this course, IAT 355.
 
 ## Technologies Used
-**HTML**: HTML is used for the basic structure of the website, including the layout, headings, paragraphs, and different sections. The SVG element is used to hold the visualizations.
-**CSS**: CSS is used for the styling of the website and handles the responsiveness.
+**HTML**: HTML is used for the basic structure of the website, including the layout, headings, paragraphs, and different sections. The SVG element is used to hold the visualizations.  
+**CSS**: CSS is used for the styling of the website and handles the responsiveness.  
 **JavaScript**: JavaScript is used to add simple interactions to the website and to create the visualizations.
 
 ## Pages and Navigation
@@ -14,10 +14,10 @@ The purpose of this website is to serve as a portfolio that includes an introduc
 1. **Bar Chart of Number of Songs I Listened to in a Week**: This bar chart was created using JS.
 2. **Interactive iPod**: This interactive SVG was created using JS. Users can click the skip forward button to go to the next song. The speed and distance of the music notes that float up are randomized.
 
-**style.css**: This CSS file contains code for styling the HTML elements, layout, and making the site responsive by using media queries.
+**style.css**: This CSS file contains code for styling the HTML elements, layout, and making the site responsive by using media queries.  
 **main.js**: This JS file contains code for simple website interactions, including:
 1. A back to top button that takes the user back to the top of the page once they have reached the end of the page
-2. An animation for the image gallery that tilts the image based on the user's mouse position when hovering over it
+2. An animation for the image gallery that tilts the image based on the user's mouse position when hovering over it  
 **vis.js**: This JS file contains code for the visualizations displayed on visualizations.html.
 
 
