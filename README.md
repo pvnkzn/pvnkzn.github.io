@@ -9,7 +9,7 @@ The purpose of this website is to serve as a portfolio that includes an introduc
 **JavaScript**: JavaScript is used to add simple interactions to the website and to create the visualizations.
 
 ## Pages and Navigation
-**index.html**: This is the homepage of the site and will be loaded upon navigating to the site. The top navigation bar can be used to go to the visualizations page. This page contains information about me, such as my skills, education, projects, and images of work I have created.
+**index.html**: This is the homepage of the site and will be loaded upon navigating to the site. The top navigation bar can be used to go to the visualizations page. This page contains information about me, such as my skills, education, projects, and images of work I have created.  
 **visualizations.html**: This page contains the visualizations I have created. The current visualizations include:
 1. **Bar Chart of Number of Songs I Listened to in a Week**: This bar chart was created using JS.
 2. **Interactive iPod**: This interactive SVG was created using JS. Users can click the skip forward button to go to the next song. The speed and distance of the music notes that float up are randomized.
