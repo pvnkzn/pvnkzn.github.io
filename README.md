@@ -17,7 +17,7 @@ The purpose of this website is to serve as a portfolio that includes an introduc
 **style.css**: This CSS file contains code for styling the HTML elements, layout, and making the site responsive by using media queries.  
 **main.js**: This JS file contains code for simple website interactions, including:
 1. A back to top button that takes the user back to the top of the page once they have reached the end of the page
-2. An animation for the image gallery that tilts the image based on the user's mouse position when hovering over it  
+2. An animation for the image gallery that tilts the image based on the user's mouse position when hovering over it  <br>
 **vis.js**: This JS file contains code for the visualizations displayed on visualizations.html.
 
 
