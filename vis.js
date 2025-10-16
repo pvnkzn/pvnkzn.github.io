@@ -513,3 +513,208 @@ noteGroups.forEach((noteGroup, i) => {
     const speed = 1 + Math.random() * 2;
     floatMusicNote(noteGroup, notes[i].x, notes[i].y, distance, speed);
 });
+
+//-----------------------------------------------------------------------------------
+
+// assignment 3 vegalite
+// Load data from datasets/videogames_wide.csv using d3.csv and then make visualizations
+async function fetchData() {
+    const data = await d3.csv("./dataset/videogames_wide.csv");
+    return data;
+}
+
+fetchData().then(async (data) => {
+
+    // visualization 1: genre
+    const vlSpec = vl
+        .markBar()
+        .data(data)
+        .encode(
+            vl.y().fieldN("Genre").sort("-x"),
+            vl.x().fieldQ("Global_Sales").aggregate("sum").title("Total Global Sales (in millions of units)"),
+            vl.color().value("orange"),
+            vl.tooltip(
+                [
+                    {field: "Genre"},
+                    {field: "Global_Sales", title: "Global Sales", aggregate: "sum"}
+                ]
+            )
+        )
+        .title("Global Sales of Video Games by Genre")
+        .width(600)
+        .toSpec();
+
+    // visualization 1: platform
+    const vlSpec2 = vl
+        .markBar()
+        .data(data)
+        .encode(
+            vl.y().fieldN("Platform").sort("-x"),
+            vl.x().fieldQ("Global_Sales").aggregate("sum").title("Total Global Sales (in millions of units)"),
+            vl.color().value("skyblue"),
+            vl.tooltip(
+                [
+                    {field: "Platform"},
+                    {field: "Global_Sales", title: "Global Sales", aggregate: "sum"}
+                ]
+            )
+        )
+        .title("Global Sales of Video Games by Platform")
+        .width(950)
+        .toSpec();
+
+
+    // visualization 2: platform
+    const vlSpec3 = vl
+        .markLine()
+        .data(data)
+        .encode(
+            vl.x().fieldQ("Year").axis({tickMinStep: 5}),
+            vl.y().fieldQ("Global_Sales").aggregate("sum").title("Total Global Sales (in millions of units)"),
+            vl.color().fieldN("Platform").scale({scheme:"category20"}),
+            vl.tooltip(
+                [
+                    {field: "Platform"},
+                    {field: "Year"},
+                    {field: "Global_Sales", title: "Global Sales", aggregate: "sum"},
+                ]
+            )
+        )
+        .title("Global Sales of Video Games Over Time by Platform")
+        .width(950)
+        .height(500)
+        .toSpec();
+
+    // visualization 2: genre
+    const vlSpec4 = vl
+        .markLine()
+        .data(data)
+        .encode(
+            vl.x().fieldQ("Year").axis({tickMinStep: 5}),
+            vl.y().fieldQ("Global_Sales").aggregate("sum").title("Total Global Sales (in millions of units)"),
+            vl.color().fieldN("Genre").scale({scheme:"category20"}),
+            vl.tooltip(
+                [
+                    {field: "Genre"},
+                    {field: "Year"},
+                    {field: "Global_Sales", title: "Global Sales", aggregate: "sum"},
+                ]
+            )
+        )
+        .title("Global Sales of Video Games Over Time by Genre")
+        .width(950)
+        .height(500)
+        .toSpec();
+
+    // visualization 3: NA sales by platform
+    const vlSpec5 = vl
+        .markBar()
+        .data(data)
+        .encode(
+            vl.y().fieldN("Platform").sort("-x"),
+            vl.x().fieldQ("NA_Sales").aggregate("sum").title("North America Sales (in millions of units)"),
+            vl.color().value("lightseagreen"),
+            vl.tooltip(
+                [
+                    {field: "Platform"},
+                    {field: "NA_Sales", title: "NA Sales", aggregate: "sum"}
+                ]
+            )
+        )
+        .title("Sales of Video Games by Platform in North America")
+        .width(600)
+        .toSpec();
+
+    // visualization 3: EU sales by platform
+    const vlSpec6 = vl
+        .markBar()
+        .data(data)
+        .encode(
+            vl.y().fieldN("Platform").sort("-x"),
+            vl.x().fieldQ("EU_Sales").aggregate("sum").title("Europe Sales (in millions of units)"),
+            vl.color().value("darkorchid"),
+            vl.tooltip(
+                [
+                    {field: "Platform"},
+                    {field: "EU_Sales", title: "EU Sales", aggregate: "sum"}
+                ]
+            )
+        )
+        .title("Sales of Video Games by Platform in Europe")
+        .width(600)
+        .toSpec();
+
+    // visualization 3: JP sales by platform
+    const vlSpec7 = vl
+        .markBar()
+        .data(data)
+        .encode(
+            vl.y().fieldN("Platform").sort("-x"),
+            vl.x().fieldQ("JP_Sales").aggregate("sum").title("Japan Sales (in millions of units)"),
+            vl.color().value("firebrick"),
+            vl.tooltip(
+                [
+                    {field: "Platform"},
+                    {field: "JP_Sales", title: "JP Sales", aggregate: "sum"}
+                ]
+            )
+        )
+        .title("Sales of Video Games by Platform in Japan")
+        .width(600)
+        .toSpec();
+
+    // visualization 3: Other sales by platform
+    const vlSpec8 = vl
+        .markBar()
+        .data(data)
+        .encode(
+            vl.y().fieldN("Platform").sort("-x"),
+            vl.x().fieldQ("Other_Sales").aggregate("sum").title("Other Sales (in millions of units)"),
+            vl.color().value("sandybrown"),
+            vl.tooltip(
+                [
+                    {field: "Platform"},
+                    {field: "Other_Sales", title: "Other Sales", aggregate: "sum"}
+                ]
+            )
+        )
+        .title("Sales of Video Games by Platform in Other Regions")
+        .width(600)
+        .toSpec();
+
+    // visualization 4: Number of SEGA Role-Playing Games Released per Year
+    const vlSpec9 = vl
+        .markBar()
+        .data(data)
+        .filter("datum.Publisher === 'Sega' && datum.Genre === 'Role-Playing'")
+        .encode(
+            vl.x().fieldQ("Year"),
+            vl.y().fieldN("Genre").aggregate("count").title("Number of RPGs"),
+            vl.tooltip(
+                [
+                    {field: "Year"},
+                    {field: "Genre", title: "Number of RPGs", aggregate: "count"}
+                ]
+            )
+        )
+        .title("Number of SEGA Role-Playing Games Released per Year")
+        .width(750)
+        .toSpec();
+    
+    //render
+    render("#view", vlSpec);
+    render("#view2", vlSpec2);
+    render("#view3", vlSpec3);
+    render("#view4", vlSpec4);
+    render("#view5", vlSpec5);
+    render("#view6", vlSpec6);
+    render("#view7", vlSpec7);
+    render("#view8", vlSpec8);
+    render("#view9", vlSpec9);
+
+});
+
+async function render(viewID, spec) {
+    const result = await vegaEmbed(viewID, spec);
+    result.view.run();
+}

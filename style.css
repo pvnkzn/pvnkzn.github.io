@@ -330,3 +330,31 @@ svg {
   flex-direction: column;
   align-items: center;
 }
+
+/* ------------------------------------------------------------------------ */
+
+/* assignment 3 vegalite */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+}
+
+#view,
+#view2,
+#view3,
+#view4,
+#view5,
+#view6,
+#view7,
+#view8,
+#view9
+ {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+}
+
+/* ------------------------------------------------------------------------ */

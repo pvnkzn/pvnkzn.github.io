@@ -8,6 +8,37 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+        
+        <!-- vegalite setup -->
+        <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite-api@5.6.0"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            const options = {
+                config: {
+                // Vega-Lite default configuration
+                },
+                init: (view) => {
+                // initialize tooltip handler
+                view.tooltip(new vegaTooltip.Handler().call);
+                },
+                view: {
+                // view constructor options
+                // remove the loader if you don't want to default to vega-datasets!
+                loader: vega.loader({
+                    baseURL: "https://cdn.jsdelivr.net/npm/vega-datasets@2/",
+                }),
+                renderer: "canvas",
+                },
+            };
+
+            // register vega and vega-lite with the API
+            vl.register(vega, vegaLite, options);
+        </script>
     </head>
     <body>
         <header>
@@ -21,6 +52,27 @@
         </header>
 
         <main>
+
+            <!-- assignment 3 vegalite visualizations -->
+            <div class="container">
+                <h2>Assignment 3 Vega-Lite Visualizations</h2>
+                <!-- visualization goes into this div you can create multiple divs and give them IDs -->
+                <h3>Visualization 1: Global Sales by Genre and Platform</h3>
+                <div id="view"></div>
+                <div id="view2"></div>
+                <h3>Visualization 2: Sales Over Time by Platform and Genre</h3>
+                <div id="view3"></div>
+                <div id="view4"></div>
+                <h3>Visualization 3: Regional Sales vs. Platform</h3>
+                <div id="view5"></div>
+                <div id="view6"></div>
+                <div id="view7"></div>
+                <div id="view8"></div>
+                <h3>Visualization 4: Number of SEGA Role-Playing Games Released per Year</h3>
+                <div id="view9"></div>
+            </div>
+
+            <!-- assignment 2 visualizations -->
             <div class="visualization">
                 <h2>Visualization 1: Bar Chart</h2>
                 <svg id="barChart"></svg>
