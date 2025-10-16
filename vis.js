@@ -566,7 +566,7 @@ fetchData().then(async (data) => {
 
     // visualization 2: platform
     const vlSpec3 = vl
-        .markLine()
+        .markLine({point: true})
         .data(data)
         .encode(
             vl.x().fieldQ("Year").axis({tickMinStep: 5}),
@@ -587,7 +587,7 @@ fetchData().then(async (data) => {
 
     // visualization 2: genre
     const vlSpec4 = vl
-        .markLine()
+        .markLine({point: true})
         .data(data)
         .encode(
             vl.x().fieldQ("Year").axis({tickMinStep: 5}),
@@ -606,7 +606,7 @@ fetchData().then(async (data) => {
         .height(500)
         .toSpec();
 
-    // visualization 3: NA sales by platform
+    // // visualization 3: NA sales by platform
     const vlSpec5 = vl
         .markBar()
         .data(data)
@@ -625,7 +625,7 @@ fetchData().then(async (data) => {
         .width(600)
         .toSpec();
 
-    // visualization 3: EU sales by platform
+    // // visualization 3: EU sales by platform
     const vlSpec6 = vl
         .markBar()
         .data(data)
@@ -644,7 +644,7 @@ fetchData().then(async (data) => {
         .width(600)
         .toSpec();
 
-    // visualization 3: JP sales by platform
+    // // visualization 3: JP sales by platform
     const vlSpec7 = vl
         .markBar()
         .data(data)
@@ -663,7 +663,7 @@ fetchData().then(async (data) => {
         .width(600)
         .toSpec();
 
-    // visualization 3: Other sales by platform
+    // // visualization 3: Other sales by platform
     const vlSpec8 = vl
         .markBar()
         .data(data)
@@ -682,11 +682,13 @@ fetchData().then(async (data) => {
         .width(600)
         .toSpec();
 
-    // visualization 4: Number of SEGA Role-Playing Games Released per Year
+    // // visualization 4: Number of SEGA Role-Playing Games Released per Year
     const vlSpec9 = vl
-        .markBar()
+        .markLine()
         .data(data)
-        .filter("datum.Publisher === 'Sega' && datum.Genre === 'Role-Playing'")
+        .transform(
+            vl.filter("datum.Publisher === 'Sega' && datum.Genre === 'Role-Playing'")
+        )
         .encode(
             vl.x().fieldQ("Year"),
             vl.y().fieldN("Genre").aggregate("count").title("Number of RPGs"),
